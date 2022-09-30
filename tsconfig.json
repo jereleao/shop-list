@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["DOM", "ES6", "ES2020", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,9 +14,46 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "rootDir": "src",
+    "outDir": "build/dist",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "include": [
-    "src"
+  "baseUrl": "src/",
+  "paths": {
+    "@assets/*": ["assets/*"],
+    "@components/*": ["components/*"],
+    "@features/*": ["features/*"],
+    "@hooks/*": ["hooks/*"],
+    "@navigation/*": ["navigation/*"],
+    "@services/*": ["services/*"],
+    "@utils/*": ["utils/*"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.ts"],
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin",
+      "tags": ["styled", "css", "sty"],
+      "lint": {
+        "duplicateProperties": "warning",
+        "emptyRules": "warning",
+        "boxModel": "warning",
+        "zeroUnits": "ignore",
+        "important": "warning",
+        "float": "warning",
+        "idSelector": "warning",
+        "showExpandedAbbreviation": "always",
+        "showSuggestionsAsSnippets": true
+      }
+    }
   ]
 }
